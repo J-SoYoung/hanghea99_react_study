@@ -1,0 +1,23 @@
+.app{
+  width : 500px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.inputCheck{
+  margin-bottom: 20px;
+}
+.inputButton{}
+.square-style{
+  width: 80px;
+  height: 80px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: darkgreen;
+  color:white;
+}
