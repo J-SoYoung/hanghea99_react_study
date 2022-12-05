@@ -78,15 +78,19 @@ function App() {
   // 인풋에 입력한 데이터를 다시 본래 화면으로 보여줌.
   // 고유id와 list에 있던 id와 비교해서 인덱스 출력하기
   const editEndBtn = (id) => {
-    console.log(id);
+    // ------ 수정데이터 바꾸기
     setList((list) => {
       list?.map((ele) => {
         if (ele.id === id) {
           ele.text = editChangeInput;
+          // ele.edit = false;
+          // 왜 페이지가 안바뀔까.....ㅋ아래 따로빼줌
         }
       });
+      console.log(list)
       return list;
     });
+    // ------ edit : t/f 바꾸기 
     const editUser = [...list];
     const index = editUser.findIndex((v) => v.id === id);
     editUser[index].edit = !editUser[index].edit;
@@ -158,55 +162,20 @@ function App() {
                     {/* edit? -> 수정할input, 수정btn or 처음 text, 기본btn*/}
                     {edit ? (
                       <>
-                        <input
-                          type='text'
-                          defaultValue={text}
-                          onChange={(e) => {
-                            setEditChangeInput(e.target.value);
-                          }}
-                        />
+                        <input  type='text' defaultValue={text}
+                                onChange={(e)=>{setEditChangeInput(e.target.value)}}/>
                         <div className='btn_box'>
-                          <button
-                            onClick={() => {
-                              editEndBtn(id);
-                            }}
-                          >
-                            수정완료
-                          </button>
-                          <button
-                            onClick={() => {
-                              editCancleBtn(id);
-                            }}
-                          >
-                            취소
-                          </button>
+                          <button onClick={() => {editEndBtn(id)}}>수정완료</button>
+                          <button onClick={() => {editCancleBtn(id)}}>취소</button>
                         </div>
                       </>
                     ) : (
                       <>
                         <p>{text}</p>
                         <div className='btn_box'>
-                          <button
-                            onClick={() => {
-                              deleteBtn(id);
-                            }}
-                          >
-                            삭제
-                          </button>
-                          <button
-                            onClick={() => {
-                              editBtn(id);
-                            }}
-                          >
-                            수정
-                          </button>
-                          <button
-                            onClick={() => {
-                              doneBtn(id);
-                            }}
-                          >
-                            완료
-                          </button>
+                          <button onClick={() => {deleteBtn(id);}}>삭제</button>
+                          <button onClick={() => {editBtn(id);}}>수정</button>
+                          <button onClick={() => {doneBtn(id);}}>완료</button>
                         </div>
                       </>
                     )}
