@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom";
 import { delTodo, doneTodo, editTodo } from "../../redux/modules/todos";
-
 
 const List = ()=>{
   const dispatch = useDispatch()  
@@ -35,19 +33,15 @@ const List = ()=>{
         {todoList
           ?.filter((t)=> t.is_done === false)
           ?.map((l)=> { 
-            return (
-            
-              <div key={l.id} className='todo_card' >
-                <Link to ={`/detail/${l.id}`}>상세보기</Link>
-                <p className='todo_title'>{l.title}</p>
-                <p>{l.content}</p>
-                <div>
-                  <button onClick={()=>{deleteBtn(l.id)}}>삭제</button>
-                  <button onClick={()=>{doneBtn(l.id)}}>완료</button>
-                </div>
+            return <div key={l.id} className='todo_card'>
+              <p className='todo_title'>{l.title}</p>
+              <p>{l.content}</p>
+              <div>
+                <button onClick={()=>{deleteBtn(l.id)}}>삭제</button>
+                <button onClick={()=>{doneBtn(l.id)}}>완료</button>
               </div>
-
-          )})}
+            </div>
+          })}
         </div>
       </div>
 
@@ -77,10 +71,7 @@ const List = ()=>{
 
 export default List;
 
-
-
     // 한번에 안되는건가...
-    // 컴포넌트 만들때 아예 따로만들어야하나? t/ f박스?
     // <> 
     //   <div>
     //     <h1 className='list_title'>오늘의 할 일</h1>

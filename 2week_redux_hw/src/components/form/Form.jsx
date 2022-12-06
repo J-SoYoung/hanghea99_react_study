@@ -21,7 +21,7 @@ const Form = () =>{
     }
     // console.log('리스트추가', [newTodo, ...todoList])
     // setTodoList((todoList)=>[newTodo, ...todoList])
-    console.log(newTodo)
+    // console.log(newTodo)
     dispatch(addTodo({newTodo}))
     setTitle("")
     setContent("")
