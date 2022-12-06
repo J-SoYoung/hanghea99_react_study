@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { addTodo } from './redux/modules/md_todo';
-
+import './App_exam.css'
 // react 기초 text
 
 function AppExam() {
