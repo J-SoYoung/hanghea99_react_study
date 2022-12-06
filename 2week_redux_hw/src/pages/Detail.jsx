@@ -53,7 +53,6 @@ const TextBox = styled.div`
   color : gray;
 `
 const BtnBox = styled.div`
-
 `
 
 
