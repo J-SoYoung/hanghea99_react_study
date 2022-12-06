@@ -1,4 +1,7 @@
-## 항해99 기초주차 Text
+## 항해99 리액트 숙련주차 
 
-###`과제내용`
-useState를 활용해 input에 있는 값을 받아와 view에 보여주기
+### 학습내용
+- styled-component
+- uesEffect
+- redux
+- react-router-dom
