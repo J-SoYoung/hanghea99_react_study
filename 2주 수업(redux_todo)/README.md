@@ -11,11 +11,8 @@
 **redux / config - configSrore / module - 각 module파일**<br>
 - config 리덕스 설정 관련 폴더
 - configStore 중앙 State 관리소 => state설정코드 
-- module 생성 후, rootReducer에 추가해줘야 
-- index에서 데이터를 받아서 사용할 수 있다.
-<br>
-- moduels는 state(data)의 그룹이 모여있는 폴더
-- moduels 안에 파일은 각 컴포넌트의 데이터를 모아두는 곳
+- module 생성 후, rootReducer에 추가해줘야 index에서 데이터를 받아서 사용할 수 있다.
+- moduels는 state(data)의 그룹이 모여있는 폴더, moduels 안에 파일은 각 컴포넌트의 데이터를 모아두는 곳
  
  ### 액션함수 생성
  ```javascript
