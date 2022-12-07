@@ -36,7 +36,6 @@ const List = ()=>{
           ?.filter((t)=> t.is_done === false)
           ?.map((l)=> { 
             return (
-            
               <div key={l.id} className='todo_card' >
                 <Link to ={`/detail/${l.id}`}>상세보기</Link>
                 <p className='todo_title'>{l.title}</p>
@@ -46,7 +45,6 @@ const List = ()=>{
                   <button onClick={()=>{doneBtn(l.id)}}>완료</button>
                 </div>
               </div>
-
           )})}
         </div>
       </div>
@@ -58,16 +56,18 @@ const List = ()=>{
         <div className='todo_card_box'>
         {todoList
           ?.filter((t)=> t.is_done === true)
-          ?.map((l)=> { 
-            return <div key={l.id} className='todo_card'>
-              <p className='todo_title'>{l.title}</p>
-              <p>{l.content}</p>
-              <div>
-                <button onClick={()=>{deleteBtn(l.id)}}>삭제</button>
-                <button onClick={()=>{doneBtn(l.id)}}>취소</button>
+          ?.map((l)=> {   
+            return (
+              <div key={l.id} className='todo_card' >
+                <Link to ={`/detail/${l.id}`}>상세보기</Link>
+                <p className='todo_title'>{l.title}</p>
+                <p>{l.content}</p>
+                <div>
+                  <button onClick={()=>{deleteBtn(l.id)}}>삭제</button>
+                  <button onClick={()=>{doneBtn(l.id)}}>취소</button>
+                </div>
               </div>
-            </div>
-          })}
+          )})}
         </div>
       </div>
     </>
