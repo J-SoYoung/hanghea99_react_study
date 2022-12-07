@@ -19,10 +19,12 @@ function TodoList() {
           ?.map((l)=> { 
             return (
                 <TodoCard 
+                  key = {l.id}
                   title = {l.title}
                   id = {l.id}
                   content = {l.content}
                   is_done = {l.is_done }
+                  is_edit = {l.is_edit}
                 />
                 )})}
         </TodoGrid>
@@ -36,10 +38,12 @@ function TodoList() {
           ?.map((l)=> { 
             return (
                 <TodoCard 
+                  key = {l.id}
                   title = {l.title}
                   id = {l.id}
                   content = {l.content}
-                  is_done = {l.is_done }
+                  is_done = {l.is_done}
+                  is_edit = {l.is_edit}
                 />
                 )})}
         </TodoGrid>

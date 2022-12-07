@@ -18,6 +18,7 @@ function Detail() {
         <ContentBox>
           <p>{data && data.title}</p>
           <p>{data && data.content}</p>
+          <p>{params.id}</p>
           {/* <EditBtn onClick={editBtn}>수정</EditBtn> */}
         </ContentBox>
         <Link to='/'>홈으로 이동</Link>

@@ -2,8 +2,10 @@
 const READ_TODO = "READ_TODO";
 const ADD_TODO = "ADD_TODO";
 const DEL_TODO = "DEL_TODO";
-const EDIT_TODO = "EDIT_TODO";
 const DONE_TODO = "DONE_TODO";
+const EDIT_TODO = "EDIT_TODO";
+const EDIT_END_TODO = "EDIT_END_TODO";
+
 
 
 // 2) Action Creator 액션 함수 지정
@@ -27,13 +29,6 @@ export const delTodo = (payload) => {
     payload: payload,
   };
 };
-export const editTodo = (payload) => {
-  console.log(payload)
-  return {
-    type: EDIT_TODO,
-    payload: payload,
-  };
-};
 export const doneTodo = (payload) => {
   // console.log(payload)
   return {
@@ -41,7 +36,20 @@ export const doneTodo = (payload) => {
     payload: payload,
   };
 };
-
+export const editTodo = (payload) => {
+  // console.log(payload)
+  return {
+    type: EDIT_TODO,
+    payload: payload,
+  };
+};
+export const editEndTodo = (payload) => {
+  console.log(payload)
+  return {
+    type: EDIT_END_TODO,
+    payload: payload.newEdit,
+  };
+};
 
 // 기본데이터를 todoInput -todo 
 // 3) 초기 상태값: 객체형태로 저장한다.
@@ -77,8 +85,6 @@ const todos = (state = initialState, action) => {
       // console.log('action',action.payload)
       // console.log('state', state.todos)
       return { todos : [ action.payload, ...copy] };
-      // action객체, copy는 배열이라 스프레드 연산자로 풀어서 객체로만듦. 
-      // 그 후에 배열을 씌워서 return한다
     }
     case DEL_TODO:{
       const copy = [...state.todos]
@@ -91,8 +97,28 @@ const todos = (state = initialState, action) => {
       copy[index].is_done = !copy[index].is_done
       return { todos : [ ...copy ]}
     }
+    case EDIT_TODO:{
+      const copy = [...state.todos]
+      const index = copy.findIndex((c)=> c.id === action.payload)
+      copy[index].is_edit = !copy[index].is_edit
+      // console.log(copy)
+      return { todos : [ ...copy ]}
+    }
+    case EDIT_END_TODO:{
+      const copy = [...state.todos]
+      console.log(copy)
+      console.log(action.payload)
+      copy.map((c)=> {
+        if(c.id == action.payload.id){
+          c.title = action.payload.title;
+          c.content = action.payload.content;
+          c.is_edit = !c.is_edit
+          console.log(copy)
+        }
+      })
+      return { todos : [ ...copy] };
+    }
     
-
     default: 
       return state;
   }
