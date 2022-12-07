@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# 항해 리액트 2주차 
+### 수업내용
+- styled-component, 
+- useEffect, 
+- redux, 
+- react-router-dom
+<br>
+<br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 리덕스 폴더구조
+**redux / config - configSrore / module - 각 module파일**<br>
+- config 리덕스 설정 관련 폴더
+- configStore 중앙 State 관리소 => state설정코드 
+- module 생성 후, rootReducer에 추가해줘야 
+- index에서 데이터를 받아서 사용할 수 있다.
+<br>
+- moduels는 state(data)의 그룹이 모여있는 폴더
+- moduels 안에 파일은 각 컴포넌트의 데이터를 모아두는 곳
+ 
+ ### 액션함수 생성
+ ```javascript
+ // 1) Action Value 액션 값 설정
+const ADD_TODO = "ADD_TODO";
 
-## Available Scripts
+// 2) Action Creator 액션 함수 지정
+export const addTodo = (payload) => {
+  return {
+    type: ADD_TODO,
+    payload: payload,
+  };
+};
 
-In the project directory, you can run:
+// 3) 초기 상태값: 객체형태로 저장한다.
+const initialState = {
+  todos : [
+    { id: new Date().getTime(), todo : '안녕 Todos11' },
+    { id: new Date().getTime(), todo : '안녕 Todos12' },
+  ]
+};
 
-### `yarn start`
+// 4) Reducer 리듀서 작성
+const todos = (state = initialState, action) => {
+  console.log('action',action)
+  console.log('state',state)
+  switch (action.type) {
+		case ADD_TODO:
+		return {
+		        todos : [ ...newTodo ]
+		      }
+				// 하나씩 형태를 풀어서 어떻게 넣어야 될지 생각할 것. 
+				// 원래 리스트와, 새 리스트 형태를 맞춰야 함.
+    default:
+      return state;
+  }
+};
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+// 5) export default reducer 리듀서 내보내기
+export default todos;
