@@ -57,8 +57,11 @@ const List = () => {
         {todos.map((todo, index) => {
           if (todo.isDone) {
             return (
+              // 5. 완료하기 부분의 상세페이지를 가져오지 못함
+              // Link태그를 타고 넘어가는 부분의 페이지 주소를
+              // 제대로 적지 않았기 때문 
               <StTodoContainer key={todo.id}>
-                <StLink to={`/${index}`} key={todo.id}>
+                <StLink to={`/${todo.id}`} key={todo.id}>
                   <div>상세보기</div>
                 </StLink>
                 <div>
@@ -72,9 +75,13 @@ const List = () => {
                   >
                     삭제하기
                   </StButton>
+                  {/* 6. 완료버튼을 클릭하고 취소버튼을 눌렀을 때 작동하지 않음
+                  =>  화살표함수가 제대로 정의되어 있지 않았고, 
+                      onToggleStatusTodo함수에서 매개변수로 보내주는 
+                      todo의 id값이 없었다/ */}
                   <StButton
                     borderColor="green"
-                    onClick={onToggleStatusTodo}
+                    onClick={()=>onToggleStatusTodo(todo.id)}
                   >
                     {todo.isDone ? "취소!" : "완료!"}
                   </StButton>

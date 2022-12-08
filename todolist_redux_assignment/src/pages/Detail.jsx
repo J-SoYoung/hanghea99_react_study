@@ -6,17 +6,29 @@ import { getTodoByID } from "../redux/modules/todos.js";
 
 const Detail = () => {
   const dispatch = useDispatch();
-  const todo = useSelector((state) => state.todos.todo);
+  const todo = useSelector((state) => state.todos.todos);
+  // const params = useParams();
+  const {id} = useParams()
+  const data = todo[id]
 
-  const { id } = useParams();
   const navigate = useNavigate();
 
+  // 4. detail페이지의 내용이 보이지 않음
+  // 페이이지 이동은 문제 없으나
+  // useSelector로 데이터를 제대로 가져오지 못해서 렌더가 안된것임
+  // 데이터가 여러개인데 페이지에서 어떤 데이터를 출력해야 할지 모르고있음
+  // useParams가 가져온 id값(=인덱스)으로 전체 todolist에서  
+  // 상세페이지로 들어온 todo를 가져와 렌더링 해줌
+
   return (
+    // <>
+    //   <h1>ㅇㅇ</h1>
+    // </>
     <StContainer>
       <StDialog>
         <div>
           <StDialogHeader>
-            <div>ID :{todo.id}</div>
+            <div>ID :{data.id}</div>
             <StButton
               borderColor="#ddd"
               onClick={() => {
@@ -26,8 +38,8 @@ const Detail = () => {
               이전으로
             </StButton>
           </StDialogHeader>
-          <StTitle>{todo.title}</StTitle>
-          <StBody>{todo.body}</StBody>
+          <StTitle>{data.title}</StTitle>
+          <StBody>{data.body}</StBody>
         </div>
       </StDialog>
     </StContainer>
