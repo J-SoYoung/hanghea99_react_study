@@ -9,7 +9,7 @@
 import { combineReducers, createStore } from "redux";
 // module 추가
 import md_counter from "../modules/md_counter";
-import md_todo from "../modules/md_todo";
+import md_todo from "../../../src/redux/modules/md_todo";
 
 const rootReducer = combineReducers({
   // module추가시 여기에 추가
