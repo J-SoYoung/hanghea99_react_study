@@ -1,17 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 
-import App from './App';
-import Count from './Count';
-import Test from './test';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { Provider } from "react-redux";
+import store from "./redux/config/configStore";
+import Count from "./Count";
+import Test from "./test";
 
-// 라이브러리 ReactDOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
     {/* <App /> */}
     <Count />
     {/* <Test /> */}
-
-  </React.StrictMode>
+  </Provider>
 );
