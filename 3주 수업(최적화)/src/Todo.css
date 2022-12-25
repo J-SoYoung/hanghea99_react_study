@@ -1,0 +1,153 @@
+@font-face {
+  font-family: 'KOFIHDrLEEJWTTF-B';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/KOFIHDrLEEJWTTF-B.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OTWelcomeBA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeBA.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+*{
+  font-family: 'OTWelcomeBA';
+}
+
+button{
+  cursor: pointer;
+}
+
+.App {
+  width: 100%;
+}
+.contain{
+  width: 1200px;
+  margin: 0 auto;
+}
+.nav{
+  width: 100%;
+  height: 60px;
+  background-color: #ffec99;
+  display: flex;
+  align-items: center;
+}
+.nav_contain{
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  font-size: 24px;
+  color: #f59f00;
+  text-shadow: 1px 1px 2px lightgray;
+}
+.input_contain{
+  width: 500px;
+  height: 230px;
+  margin: 25px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.input_box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+.input_box span {
+  width: 50px;
+  text-align: center;
+  margin-right: 10px;
+}
+.input_box input, textarea{
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 7px;
+  outline: none;
+  border: 1px solid gray;
+  font-size: 18px;
+}
+.input_box input {
+  box-sizing: border-box;
+}
+.input_contain button {
+  padding: 10px 15px 3px;
+  box-sizing: border-box;
+  background-color: #ffec99;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  text-shadow: 1px 1px 1px gray;
+  font-size: 20px;
+  cursor: pointer;
+}
+.list_box{
+  background-color: #ffec99;
+  padding: 30px;
+  box-sizing: border-box;
+  /* border-radius: 20px; */
+}
+.list_title{
+  font-size: 30px;
+  font-weight: 600;
+  color: #f59f00;
+  margin: 15px 0 ;
+  text-shadow: 1px 1px 1px lightgray;
+}
+.card_box{
+  display: flex;
+  justify-content: flex-start;
+  /* justify-content: space-around; */
+  align-items: center;
+  flex-wrap: wrap;
+}
+/* 예진님 헬프 */
+/* 박스정렬 화납니다
+flex로 wrap쓰고 앞에서부터 차례대로 카드 늘리고싶은데
+그럼 양쪽 정렬이 안맞음 => 수동계산 해야 되는건가요
+아님 치트키있나염ㅋ> <*/
+
+.card {
+  width: 260px;
+  height: 200px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-sizing: border-box;  
+  margin: 10px 10px ;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ffec99;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+.card p {
+  height: 100%;
+  padding-top: 10px;
+}
+
+.card .btn_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card button {
+  border: none;
+  padding: 7px 15px;
+  margin-right: 10px;
+} 
