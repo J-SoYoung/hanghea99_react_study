@@ -8,6 +8,8 @@ import './Todo.css';
 function Todo() {
   const [ title, setTitle ]= useState();
   const [ text, setText ]= useState();
+  const 
+
   // const [ done, setDone ]= useState(false);  // 전체 doㅜㄷdlek 
   const [ list, setList ]= useState([
     { 
@@ -25,6 +27,7 @@ function Todo() {
   ]);
 
   // console.log(title, text)
+  // input에 입력된 값이 업데이트 될 때마다, 
   const addTodoBtn = useCallback(() => {
     let newList ={
       id : new Date().getTime() + Math.random() ,
