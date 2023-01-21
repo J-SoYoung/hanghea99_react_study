@@ -67,7 +67,6 @@ function Home() {
       title: title,
       contents: contents,
       is_edit: false, 
-      memo : []
     }
     // dispatch(변화)를 발생시켜서 액션을 리듀서에 보낸다.
     // redux에서 __addDiary(액션)가 어떤 일을 하는지 명시해줘야함
