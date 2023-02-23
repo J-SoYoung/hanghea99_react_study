@@ -23,4 +23,4 @@
 <br>
 
 ## 📕 notion 수업내용 정리
-- https://www.notion.so/fun-blog/React-note-b3ce16f9ba744fb0a1887c2c733795af
+- https://www.notion.so/fun-blog/d1d349def5aa49a9b0235c69c774677e
